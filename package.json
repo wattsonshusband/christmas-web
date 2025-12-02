@@ -1,0 +1,20 @@
+{
+  "name": "advent",
+  "version": "1.0.0",
+  "description": "advent calander",
+  "keywords": [
+    "advent",
+    "sav"
+  ],
+  "license": "ISC",
+  "author": ".nero",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  }
+}

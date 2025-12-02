@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Christmas Countdown</title>
+ <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+ <script>
+  const hour = new Date().getHours();
+  const body = document.body;
+
+  if (hour >= 6 && hour < 18) {
+   body.classList.add("day-background");
+  } else {
+   body.classList.add("night-background");
+  }
+ </script>
+
+ <canvas id="snow-canvas"></canvas>
+ <canvas id="snow-pile"></canvas>
+ <script src="/js/snow.js"></script>
+
+ <div class="glass-panel">
+  <h1>Your Christmas Countdown</h1>
+  <h2 id="countdown"></h2>
+
+  <a href="/calendar" style="font-size: 1.5rem; color: #fff;">Go To Your Advent Calendar</a>
+ </div>
+
+ <script>
+ function updateCountdown() {
+  const christmas = new Date("December 25, " + new Date().getFullYear());
+  const now = new Date();
+  const diff = christmas - now;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor(diff / (1000 * 60 * 60) % 24);
+  const minutes = Math.floor(diff / (1000 * 60) % 60);
+  const seconds = Math.floor(diff / 1000 % 60);
+
+  document.getElementById("countdown").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+ }
+
+ setInterval(updateCountdown, 1000);
+ updateCountdown();
+ </script>
+</body>
+</html>

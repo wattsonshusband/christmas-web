@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Advent Calendar</title>
+ <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+ <script>
+  const hour = new Date().getHours();
+  const body = document.body;
+
+  if (hour >= 6 && hour < 18) {
+   body.classList.add("day-background");
+  } else {
+   body.classList.add("night-background");
+  }
+ </script>
+
+ <canvas id="snow-canvas"></canvas>
+ <canvas id="snow-pile"></canvas>
+ <script src="/js/snow.js"></script>
+
+ <div class="glass-panel">
+  <h1>Advent Calendar</h1>
+
+  <div class="calendar">
+   <% for (let i = 1; i <= 24; i++) { %>
+    <% if (i <= currentDay) { %>
+     <a href="/day/<%= i %>" class="day"><%= i %></a>
+    <% } else { %>
+     <div class="day locked"><%= i %></div>
+    <% } %>
+   <% } %>
+  </div>
+
+  <a href="/" style="color:white">Back to Countdown</a>
+ </div>
+</body>
+</html>
